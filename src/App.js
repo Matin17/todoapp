@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyContainer from './MyContainer';
+import FirstPage from './FirstPage';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 class App extends Component {
   render() {
+    let styles = {
+      width: "100%",
+      textAlign: "center"
+
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <BrowserRouter>
+          <Switch >
+          <Route path="/" component={FirstPage} exact />
+          <Route path="/todo" component={MyContainer} />
+          </Switch>
+        </BrowserRouter>
+
     );
   }
 }
